@@ -1,0 +1,131 @@
+    :root{
+      --max: 1200px;
+      --card-bg: #fff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:#fbf5fa;
+      font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
+      color:#333;
+    }
+
+    .split{
+      width:min(100%, var(--max));
+      margin:20px auto;
+      display:grid;
+      grid-template-columns: 1fr 1fr; 
+      gap:16px;
+      align-items:stretch;
+      min-height:70vh;
+    }
+
+    .left{
+      background:var(--card-bg);
+      border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+      display:flex;
+    }
+    .scene{
+      width:100%;
+      height:78vh;             
+      min-height:420px;
+    }
+    .scene a-scene{width:100%; height:100%}
+
+    .right{
+      background:var(--card-bg);
+      border-radius:16px; box-shadow:var(--shadow);
+      padding:22px;
+      display:flex; flex-direction:column; gap:16px;
+      overflow:auto;
+    }
+    .title{
+      text-align: center;
+      font-weight:800; 
+      font-size:28px; 
+      margin:0
+    }
+    .muted{text-align:center;color:#6b7280; margin:0}
+    .list{margin:8px 0 0 0; padding-left:18px}
+    .tag{
+      display:inline-block; margin:6px 6px 0 0; padding:6px 10px;
+      border-radius:999px; background:#eef2f7; font-size:12px;
+    }
+
+    .selfpro{
+      text-align: center;
+    }
+    .skills {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap:40px; 
+    }
+
+    .skill-column {
+      flex: 1; 
+    }
+
+    .skills p{
+      display:flex;
+      align-items:center;
+      gap:6px;       
+      line-height:2;      
+      margin:10px 0;
+    }
+
+    .skills p i:first-of-type{
+      margin-left:auto;
+    }
+
+    .fa-star, .fa-regular.fa-star{
+      font-size:1.05rem;
+    }
+    .skill-column:first-child .fa-star { color:#FFD1DA; } 
+    .skill-column:last-child .fa-star { color:#D6E5FA; } 
+
+    .skill-column h4{
+      margin:8px 0 12px;
+      padding-bottom:6px;
+      border-bottom:2px solid #eee;
+    }
+
+    .scene{ position: relative; }            
+.scene-link{
+  position: absolute;
+  inset: 0;                   
+  display: block;
+  z-index: 5;                         
+  cursor: pointer;
+  text-decoration: none;
+ 
+}
+.scene-link::after{
+  content: "クリックで作品一覧へ";
+  position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+  padding: 8px 12px; border-radius: 999px;
+  background: rgba(0,0,0,.45); color:#fff; font-size: 14px;
+  opacity: 0; transition: opacity .2s ease;
+}
+.scene:hover .scene-link::after{ opacity: 1; }  
+
+
+.scene-message {
+  text-align: center;
+  margin-top: 10px;     
+  padding: 20px 0;
+  background: #fff;  
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+
+    @media (max-width: 900px){
+      .split{grid-template-columns: 1fr}
+      .scene{height:56vh}
+    }
+

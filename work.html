@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nozomi Matsumoto's Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef6fb; 
+  --panel:#ffffff; 
+  --ink:#2c3e50;
+  --accent:#77c3e0; 
+  --accent2:#f7b0c7; 
+  --soft:#e9f3f9;
+  --radius:18px; 
+  --shadow:0 12px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box
+}
+html,body{height:100%
+}
+
+body{
+  margin:0; 
+  background:linear-gradient(180deg,var(--bg),#fff); 
+  color:var(--ink);
+  font-family:"Poppins","Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto
+}
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px
+}
+.header{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px;
+  justify-content:space-between;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(8px)
+  ;padding:14px 16px;
+  border-radius:16px;
+  box-shadow:var(--shadow)
+}
+.header h1{
+  margin:0;
+  font-size:20px
+}
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
+}
+.btn{
+  appearance:none;
+  border:1px solid #dbe7f0;
+  background:#fff;
+  color:#2c3e50;
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600
+}
+.btn.active{
+  background:var(--accent);
+  color:#fff;
+  border-color:transparent
+}
+.search{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  background:#fff;
+  border:1px solid #dbe7f0;
+  border-radius:999px;
+  padding:6px 10px
+}
+.search input{
+  border:none;
+  outline:none;
+  background:transparent;
+  min-width:180px
+}
+.grid{
+  margin-top:16px;
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr))
+}
+.card{
+  background:var(--panel);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  border:1px solid #f0f4f8;
+  display:flex;
+  flex-direction:column;
+  gap:10px
+}
+.icon{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  background:var(--soft);
+  display:grid;
+  place-items:center;
+  font-size:26px
+}
+.title{
+  font-size:18px;
+  margin:0
+}
+.desc{
+  margin:0;
+  color:#546978
+}
+.badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap
+}
+.badge{
+  background:#f0f7fb;
+  border:1px solid #e3eff7;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px
+}
+.actions{
+  margin-top:auto;
+  display:flex;
+  gap:8px
+}
+.cta{
+  border:none;
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:700
+}
+.cta.primary{
+  background:linear-gradient(180deg,var(--accent2),#f59bb7);color:#fff
+}
+.cta.ghost{
+  background:#f5f9fc;
+  border:1px solid #e4eef5
+}
+.footer{
+  opacity:.7;
+  text-align:center;
+  font-size:12px;
+  margin:22px 0
+}
+.hero{
+  margin:16px 0;
+  padding:18px;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:var(--shadow);
+  border:1px solid #e9f2f8
+}
+.hero p{
+  margin:6px 0 0 0;
+  color:#577189
+  }
+
+  .back{
+    border:none; 
+    background:#fff; 
+    border:1px solid #dbe7f0; 
+    border-radius:10px; 
+    padding:8px 12px; 
+    text-decoration:none; 
+    color:#2c3e50;
+  }
+  .back:hover{ 
+    background:#f7fbff 
+    }
+.viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+}
+.viewer.active{
+  display:flex;
+}
+.frame{
+  position:relative;
+  width:90%;
+  max-width:1000px;
+  height:80vh;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.frame iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+.close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:none;
+  background:#fff;
+  border-radius:50%;
+  width:38px;
+  height:38px;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a class="back" href="index.html">←自己紹介ページへ戻る</a>
+      <h1>🎀Nozomi Matsumoto's Portfolio</h1>
+      <div class="filters">
+        <button class="btn active" data-filter="all">All</button>
+        <button class="btn" data-filter="website">Website</button>
+        <button class="btn" data-filter="app">App</button>
+        <button class="btn" data-filter="game">Game</button>
+        <button class="btn" data-filter="design">Design</button>
+        <div class="search">🔎 <input id="q" type="search" placeholder="作品名やタグで検索…" /></div>
+      </div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <div class="footer">© Matsumoto Nozomi</div>
+  </div>
+
+  <!-- モーダル（同一オリジンのページだけプレビュー） -->
+  <div id="viewer" class="viewer" aria-hidden="true">
+    <div class="frame" role="dialog" aria-modal="true" aria-label="プレビュー">
+      <button class="close" onclick="closePreview()">×</button>
+      <iframe id="previewFrame" src="" title="preview"></iframe>
+    </div>
+  </div>
+
+<script>
+const projects = [
+  { title:"デザイン一覧", icon:"🎨", category:"design",
+    tags:["Photoshop","Illustrator","Blender"],
+    desc:"今まで制作したデザインをまとめました。", url:"design.html" },
+
+  { title:"森の小さな喫茶店", icon:"☕", category:"website",
+    tags:["HTML","CSS"],
+    desc:"大学の課題で制作したWebサイトです。画像はAdobe Fireflyで生成しました。",
+    url:"https://owu131323144.github.io/cafesite/" },
+
+  { title:"未来の恐竜博物館", icon:"🦖", category:"game",
+    tags:["Javascript"],
+    desc:"「未来の○○」がテーマの学内ゲーム制作コンテストで銀賞を受賞した作品です。",
+    url:"https://owu131323144.github.io/futuredinomusium/" },
+
+  { title:"日記", icon:"📔", category:"app",
+    tags:["Javascript","jquery"],
+    desc:"ローカルストレージで保存できる日記アプリを大学の課題で作成しました。",
+    url:"https://owu131323144.github.io/jquery_diary/" },
+
+  { title:"じゃんけん", icon:"✌️", category:"game",
+    tags:["Javascript","jquery"],
+    desc:"大学１年生の時に作成したシンプルなじゃんけんサイトです。",
+    url:"https://owu131323144.github.io/jquery_2023/" },
+
+  { title:"学習プランナー", icon:"⏱️", category:"app",
+    tags:["Python","Streamlit"],
+    desc:"つい集中力が切れてしまいがちな自宅学習を支援するアプリです。⚠streamlitで制作したため別サイトに移動します。",
+    url:"https://app2025-6apb2ajling9qeyacyp8if.streamlit.app/" },
+
+  { title:"就活ノート", icon:"📝", category:"app",
+    tags:["Python","Streamlit","LLM"],
+    desc:"企業様の情報をまとめ、ESシートをLLMに生成してもらえるアプリです。⚠streamlitで制作したため別サイトに移動します。",
+    url:"https://app20252-n6cprgcw7hvis7fp654xnr.streamlit.app/" },
+
+  { title:"パン屋さん経営ゲーム", icon:"🥐", category:"game",
+    tags:["Javascript"],
+    desc:"クリックすることでお客さんの注文にこたえていくゲームを制作しました。",
+    url:"https://owu131323144.github.io/gamebakery_2024/" }
+];
+
+const grid = document.getElementById('grid');
+const btns = [...document.querySelectorAll('.btn[data-filter]')];
+const q = document.getElementById('q');
+const viewer = document.getElementById('viewer');
+const preview = document.getElementById('previewFrame');
+
+function renderCards(list){
+  grid.innerHTML = list.map(p => `
+    <article class="card" data-category="${p.category}" data-url="${p.url}">
+      <div class="icon">${p.icon}</div>
+      <h3 class="title">${p.title}</h3>
+      <p class="desc">${p.desc ?? ""}</p>
+      <div class="badges">${(p.tags||[]).map(t=>`<span class="badge">${t}</span>`).join('')}</div>
+    </article>
+  `).join('');
+}
+
+function applyFilter(){
+  const active = document.querySelector('.btn.active')?.dataset.filter || 'all';
+  const kw = (q.value || '').toLowerCase();
+  const filtered = projects.filter(p=>{
+    const inCat = (active==='all') || (p.category===active);
+    const hay = [p.title, p.desc, ...(p.tags||[])].join(' ').toLowerCase();
+    return inCat && (!kw || hay.includes(kw));
+  });
+  renderCards(filtered);
+}
+btns.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    applyFilter();
+  });
+});
+q.addEventListener('input', applyFilter);
+
+
+grid.addEventListener('click', (e)=>{
+  const card = e.target.closest('.card');
+  if(!card) return;
+  const url = card.dataset.url;
+  if (isStreamlit(url)) {
+    window.open(url, '_blank', 'noopener');     
+  } else {
+    openPreview(url);                           
+  }
+});
+
+function isStreamlit(url){
+  try { return new URL(url, location.href).host.endsWith('streamlit.app'); }
+  catch { return false; }
+}
+
+function openPreview(url){
+  const u = new URL(url, location.href);
+  preview.src = u.href;
+  viewer.classList.add('active');
+  viewer.setAttribute('aria-hidden','false');
+}
+function closePreview(){
+  viewer.classList.remove('active');
+  viewer.setAttribute('aria-hidden','true');
+  preview.src = "";
+}
+window.addEventListener('keydown', e=>{
+  if(e.key==="Escape" && viewer.classList.contains('active')) closePreview();
+});
+
+applyFilter();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nozomi Matsumoto's Portfolio</title>
+
+
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <script>
+    (function(d){var c={kitId:'iru3tzi',scriptTimeout:3000,async:true},
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,'')+' wf-inactive';},c.scriptTimeout),
+    tk=d.createElement('script'),f=false,s=d.getElementsByTagName('script')[0],a;h.className+=' wf-loading';
+    tk.src='https://use.typekit.net/'+c.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;
+    if(f||a&&a!='complete'&&a!='loaded')return;f=true;clearTimeout(t);try{Typekit.load(c)}catch(e){}}; s.parentNode.insertBefore(tk,s)})(document);
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <main class="split">
+    <section class="left">
+      <div class="scene">
+        <a-scene embedded renderer="antialias: true; toneMapping: ACESFilmic; exposure: 1.25">
+          <a-assets>
+            <a-asset-item id="room" src="./roomport.glb"></a-asset-item>
+          </a-assets>
+
+          <a-entity id="roomModel" gltf-model="#room"
+                    position="1 -2 6" rotation="0 -2 0" scale="1 1 1"
+                    animation="property: rotation; to: 0 -90 0; dir: alternate; loop: true; dur: 8000; easing: easeInOutSine">
+          </a-entity>
+
+          <a-entity camera position="0 7 15" rotation="-30 0 0"
+                    look-controls="enabled:false" wasd-controls="enabled:false"></a-entity>
+
+          <a-light type="ambient" intensity="0.6" color="#ffffff"></a-light>
+          <a-entity light="type: hemisphere; color: #ffffff; groundColor: #ffeef5; intensity: 0.5"></a-entity>
+          <a-light type="directional" color="#ffffff" intensity="1.8" position="2 4 -3"></a-light>
+          <a-sky color="#AAC4FF"></a-sky>
+
+        </a-scene>
+        <a class="scene-link" href="work.html"></a> 
+        <section class="scene-message">
+          <p>ぜひお部屋をクリックして私の作品を見てください！🎀</p>
+        </section>
+
+      </div>
+    </section>
+
+    <aside class="right">
+      <h1 class="title">松本 望愛</h1>
+      <h1 class="title">Matsumoto Nozomi</h1>
+      <p class="muted">大妻女子大学 社会情報学部 情報デザイン専攻</p>
+
+      <section class="selfpro">
+        <h3>自己紹介</h3>
+        <ul class="self">
+          <p>2004年7月生まれ 埼玉県出身</p>
+          <p>現在、大学では市村ゼミでVRゲームを制作中</p>
+          <p>高校3年生から地元のパン屋さんでアルバイトしています。</p>
+          <p>大学3年生の夏からプログラミング教室でアルバイトしています。</p>
+        </ul>
+      </section>
+
+      <section class="skills">
+        <div class="skill-column">
+        <h4>🎨 デザイン</h4>
+        <p>Photoshop 
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </p>
+        <p>Illustrator 
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+        <p>Blender
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+      </div>
+      <div class="skill-column">
+        <h4>🖥️ コーディング</h4>
+        <p>HTML CSS
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+        <p>Javascript
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+        <p>Python
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+        <p>Java
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </p>
+      </div>
+      </section>
+
+    </aside>
+  </main>
+
+</body>
+</html>

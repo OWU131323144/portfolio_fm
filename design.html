@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nozomi Matsumoto's portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef6fb; 
+  --panel:#fff; 
+  --ink:#2c3e50; 
+  --accent:#77c3e0; 
+  --accent2:#f7b0c7;
+  --shadow:0 12px 30px rgba(0,0,0,.08); 
+  --radius:16px;
+}
+*{box-sizing:border-box
+}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#fff);
+  color:var(--ink);
+  font-family:"Poppins","Noto Sans JP",system-ui
+}
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:16px
+}
+.header{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(8px);
+  padding:10px 12px;
+  border-radius:14px;
+  box-shadow:var(--shadow)
+}
+.header h1{
+  margin:0;
+  font-size:20px
+}
+.back{
+  border:none;
+  background:#fff;
+  border:1px solid #dbe7f0;
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer
+}
+.controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center
+}
+.btn{
+  border:1px solid #dbe7f0;
+  background:#fff;
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-weight:600
+}
+.btn.active{
+  background:var(--accent);
+  color:#fff;
+  border-color:transparent
+}
+.search{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  border:1px solid #dbe7f0;
+  background:#fff;
+  border-radius:999px;
+  padding:6px 10px
+}
+.search input{
+  border:none;
+  outline:none;
+  background:transparent;
+  min-width:180px
+}
+
+.grid{
+  margin-top:16px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr))
+}
+.card{
+  background:var(--panel);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  border:1px solid #eef2f8;
+  display:flex;
+  flex-direction:column
+}
+.thumb{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  background:linear-gradient(135deg,#e8f5ff,#fff)
+}
+.meta{
+  padding:10px 12px
+}
+.title{
+  margin:0 0 6px 0;
+  font-size:16px
+}
+.badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap
+}
+.badge{
+  background:#f0f7fb;
+  border:1px solid #e3eff7;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:12px
+}
+
+.viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:50
+}
+.viewer.active{
+  display:flex
+}
+.viewer .frame{
+  max-width:min(1000px,92vw);
+  width:100%;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+  overflow:hidden
+}
+.viewer .imgwrap{
+  background:#000;
+  display:grid;
+  place-items:center
+}
+.viewer img{
+  width:100%;
+  height:auto;
+  max-height:70vh;
+  object-fit:contain
+}
+.viewer .bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+  gap:10px
+}
+.viewer .left, .viewer .right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap
+}
+.iconbtn{
+  border:none;
+  background:#f5f9fc;
+  border:1px solid #e4eef5;
+  color:#2c3e50;
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer
+}
+.primary{
+  background:linear-gradient(180deg,var(--accent2),#f59bb7);
+  color:#fff;
+  border:none
+}
+.viewer .nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  justify-content:space-between;
+  inset:0;
+  padding:0 12px;
+  pointer-events:none
+}
+.viewer .nav button{
+  pointer-events:auto;
+  border:none;
+  background:rgba(255,255,255,.85);
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:700
+}
+.footer{
+  opacity:.7;
+  text-align:center;
+  font-size:12px;
+  margin:22px 0
+}
+
+  .back{
+    border:none; 
+    background:#fff; 
+    border:1px solid #dbe7f0; 
+    border-radius:10px; 
+    padding:8px 12px; 
+    text-decoration:none; 
+    color:#2c3e50;
+  }
+  .back:hover{ 
+    background:#f7fbff 
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+     <a class="back" href="work.html">← 一覧へ戻る</a>
+    <h1>🎀 Design Gallery</h1>
+    <div class="controls">
+      <button class="btn active" data-filter="all">All</button>
+      <button class="btn" data-filter="pop">POP</button>
+      <button class="btn" data-filter="banner">バナー</button>
+      <button class="btn" data-filter="logo">ロゴマーク</button>
+      <button class="btn" data-filter="3d">3Dモデル</button>
+      <div class="search">🔎 <input id="q" type="search" placeholder="タイトル/タグで検索…"></div>
+    </div>
+  </div>
+
+  <div id="grid" class="grid"></div>
+  <div class="footer">© Matsumoto Nozomi</div>
+</div>
+
+<div id="viewer" class="viewer" aria-hidden="true">
+  <div class="frame">
+    <div class="imgwrap"><img id="viewImg" alt="design"/></div>
+    <div class="bar">
+      <div class="left">
+        <strong id="viewTitle">Title</strong>
+        <span id="viewTags"></span>
+      </div>
+      <div class="right">
+        <a id="viewOpen" class="iconbtn primary" target="_blank" rel="noopener">原寸で開く</a>
+        <button class="iconbtn" id="viewClose">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav">
+    <button id="prev">〈</button>
+    <button id="next">〉</button>
+  </div>
+</div>
+
+<script>
+const items = [
+  {title:"個人制作", src:"assets/akino.jpg", cat:"banner", tags:["Photoshop"]},
+  {title:"アルバイトポップ",  src:"assets/melonpan.jpg",   cat:"pop", tags:["Photoshop"]},
+  {title:"アルバイトポップ",  src:"assets/cream.jpg",   cat:"pop",   tags:["Photoshop"]},
+  {title:"個人制作", src:"assets/bakerylogo.png", cat:"logo", tags:["Illustrator"]},
+  {title:"アルバイトポップ",  src:"assets/amaguri.jpg",   cat:"pop", tags:["Photoshop"]},
+  {title:"アルバイトポップ",  src:"assets/chiken.jpg",   cat:"pop", tags:["Photoshop"]},
+  {title:"アルバイトポップ",  src:"assets/strawberry.jpg",   cat:"pop",   tags:["Photoshop"]},
+  {title:"インターン制作", src:"assets/summer.jpg",     cat:"banner",     tags:["Photoshop"]},
+  {title:"大学課題", src:"assets/logo.png", cat:"logo", tags:["Illustrator"]},
+  // {title:"個人制作", src:"roomport.glb", cat:"3d", tags:["Blender"]},
+];
+
+const grid = document.getElementById('grid');
+const btns = [...document.querySelectorAll('.btn[data-filter]')];
+const q = document.getElementById('q');
+
+function cardHTML(p, idx){
+  const t = (p.tags||[]).map(t=>`<span class="badge">${t}</span>`).join('');
+  return `
+  <article class="card" data-cat="${p.cat}" data-idx="${idx}">
+    <img class="thumb" src="${p.src}" alt="${p.title}" loading="lazy"
+         onerror="this.style.background='linear-gradient(135deg,#dbeafe,#fff)';this.src='';this.alt='(画像見つかりません)';">
+    <div class="meta">
+      <h3 class="title">${p.title}</h3>
+      <div class="badges">${t}</div>
+    </div>
+  </article>`;
+}
+
+function render(list){
+  grid.innerHTML = list.map((p,i)=>cardHTML(p, p._idx ?? i)).join('');
+}
+
+function applyFilter(){
+  const active = document.querySelector('.btn.active')?.dataset.filter || 'all';
+  const kw = (q.value||'').toLowerCase();
+  const enriched = items.map((p,i)=>({...p, _idx:i}));
+  const filtered = enriched.filter(p=>{
+    const inCat = active==='all' || p.cat===active;
+    const hay = [p.title, ...(p.tags||[])].join(' ').toLowerCase();
+    const inKw = !kw || hay.includes(kw);
+    return inCat && inKw;
+  });
+  render(filtered);
+}
+btns.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); applyFilter();
+  });
+});
+q.addEventListener('input', applyFilter);
+applyFilter();
+
+const viewer = document.getElementById('viewer');
+const viewImg = document.getElementById('viewImg');
+const viewTitle = document.getElementById('viewTitle');
+const viewTags = document.getElementById('viewTags');
+const viewOpen = document.getElementById('viewOpen');
+const viewClose = document.getElementById('viewClose');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+
+let currentList = []; 
+let currentIndex = 0;
+
+function openViewer(idx){
+  const cards = [...document.querySelectorAll('.card')];
+  currentList = cards.map(c => Number(c.dataset.idx));
+  currentIndex = currentList.indexOf(idx);
+  showByIndex(currentIndex);
+  viewer.classList.add('active');
+  viewer.setAttribute('aria-hidden','false');
+}
+
+function showByIndex(i){
+  const item = items[currentList[i]];
+  if(!item) return;
+  viewImg.src = item.src;
+  viewTitle.textContent = item.title;
+  viewTags.innerHTML = (item.tags||[]).map(t=>`<span class="badge">${t}</span>`).join('');
+  viewOpen.href = item.src;
+}
+
+function step(dir){
+  if(!currentList.length) return;
+  currentIndex = (currentIndex + dir + currentList.length) % currentList.length;
+  showByIndex(currentIndex);
+}
+
+grid.addEventListener('click', (e)=>{
+  const card = e.target.closest('.card'); if(!card) return;
+  openViewer(Number(card.dataset.idx));
+});
+viewClose.addEventListener('click', ()=>{ viewer.classList.remove('active'); viewer.setAttribute('aria-hidden','true'); });
+nextBtn.addEventListener('click', ()=>step(+1));
+prevBtn.addEventListener('click', ()=>step(-1));
+viewer.addEventListener('click', (e)=>{ if(e.target===viewer) viewClose.click(); });
+window.addEventListener('keydown', (e)=>{
+  if(viewer.classList.contains('active')){
+    if(e.key==='Escape') viewClose.click();
+    if(e.key==='ArrowRight') step(+1);
+    if(e.key==='ArrowLeft') step(-1);
+  }
+});
+</script>
+</body>
+</html>
